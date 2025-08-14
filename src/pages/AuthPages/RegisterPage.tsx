@@ -79,10 +79,23 @@ const RegisterPage: FC = () => {
 						pattern: {
 							value: validPassword,
 							message:
-								"Пароль должен иметь минимум:\n● 6 символов\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву"
+								"Пароль должен иметь минимум 6 символов из них:\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву\n● одну цифру"
 						}
 					})}
 				/>
+
+				{formState.isValid ? (
+					<p className={styles.approval}>
+						Нажимая «Зарегистрироваться», я даю{" "}
+						<Link
+							className={styles.approval_link}
+							target="_blank"
+							to={pagesConfig.userAgreement}
+						>
+							согласие на обработку персональных данных
+						</Link>
+					</p>
+				) : null}
 
 				<button
 					className={styles.button}

@@ -6,7 +6,9 @@ import {
 	RegisterPage,
 	LoginPage,
 	CategoriesPage,
-	CategoryPage
+	CategoryPage,
+	UserAgreementPage,
+	CardsPage
 } from "./pages"
 import "./assets/styles/fonts.scss"
 import "./assets/styles/general.scss"
@@ -18,8 +20,13 @@ const App: FC = () => {
 				<Route path={pagesConfig.home} element={<HomePage />} />
 				<Route path={pagesConfig.login} element={<LoginPage />} />
 				<Route path={pagesConfig.register} element={<RegisterPage />} />
+				<Route path={pagesConfig.cards} element={<CardsPage />} />
 				<Route path={pagesConfig.categories} element={<CategoriesPage />} />
 				<Route path={pagesConfig.category} element={<CategoryPage />} />
+				<Route
+					path={pagesConfig.userAgreement}
+					element={<UserAgreementPage />}
+				/>
 
 				<Route path="*" element={<Navigate to={pagesConfig.register} />} />
 			</Routes>

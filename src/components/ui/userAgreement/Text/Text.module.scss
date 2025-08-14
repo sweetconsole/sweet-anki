@@ -1,0 +1,11 @@
+@use "../../../../assets/styles/variables.scss";
+
+.text {
+	font-size: 1rem;
+	line-height: 1.25rem;
+	margin-bottom: 0.5rem;
+
+	&:last-of-type {
+		margin-bottom: 6rem;
+	}
+}

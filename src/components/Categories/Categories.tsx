@@ -1,8 +1,8 @@
 import { type FC, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { getCategories } from "../../services/categories.service.ts"
 import type { Category } from "../../types/category.ts"
 import styles from "./Categories.module.scss"
-import { Link } from "react-router-dom"
 
 const Categories: FC = () => {
 	const [categories, setCategories] = useState<Category[]>([])

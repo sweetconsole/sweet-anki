@@ -14,7 +14,7 @@ const Header: FC = () => {
 					</Link>
 
 					<nav className={styles.navigation}>
-						<Link className={styles.link} to={pagesConfig.home}>
+						<Link className={styles.link} to={pagesConfig.cards}>
 							Карточки
 						</Link>
 						<Link className={styles.link} to={pagesConfig.categories}>

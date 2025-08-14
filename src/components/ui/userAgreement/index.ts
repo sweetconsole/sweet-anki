@@ -1,0 +1,6 @@
+export { default as Link } from "./Link/Link.tsx"
+export { default as List } from "./List/List.tsx"
+export { default as Point } from "./Point/Point.tsx"
+export { default as Subtitle } from "./Subtitle/Subtitle.tsx"
+export { default as Text } from "./Text/Text.tsx"
+export { default as Title } from "./Title/Title.tsx"

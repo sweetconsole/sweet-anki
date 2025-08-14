@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { Field } from "../../components/ui/"
 import { auth } from "../../firebase.ts"
+import { useAuth } from "../../hooks/useAuth.ts"
 import { pagesConfig } from "../../config/pages.config.ts"
 import { validEmail, validPassword } from "../../config/valid.config.ts"
 import type { ILoginForm } from "./form.interface.ts"
 import styles from "./AuthPages.module.scss"
-import { useAuth } from "../../hooks/useAuth.ts"
 
 const LoginPage: FC = () => {
 	const { register, handleSubmit, formState } = useForm<ILoginForm>({
@@ -58,7 +58,7 @@ const LoginPage: FC = () => {
 						pattern: {
 							value: validPassword,
 							message:
-								"Пароль должен иметь минимум:\n● 6 символов\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву"
+								"Пароль должен иметь минимум 6 символов из них:\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву\n● одну цифру"
 						}
 					})}
 				/>

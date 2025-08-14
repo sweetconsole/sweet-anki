@@ -5,7 +5,7 @@ import type { Category } from "../types/category.ts"
 import { getCategoryCards } from "../services/cards.service.ts"
 import { getCategory } from "../services/categories.service.ts"
 import { pagesConfig } from "../config/pages.config.ts"
-import { Header } from "../components"
+import { Header, CardView } from "../components"
 import { BlockTitle, Container } from "../components/ui"
 
 const CategoryPage: FC = () => {
@@ -38,10 +38,8 @@ const CategoryPage: FC = () => {
 			console.error(`Error loading cards: ${error}`)
 		)
 
-		if (category) {
-			loadCards().catch(error => console.error(`Error loading cards: ${error}`))
-		}
-	})
+		loadCards().catch(error => console.error(`Error loading cards: ${error}`))
+	}, [])
 
 	return (
 		<>
@@ -51,12 +49,15 @@ const CategoryPage: FC = () => {
 				<section>
 					<BlockTitle>Категория: {category?.title.toLowerCase()}</BlockTitle>
 
-					<div>
+					<div
+						style={{
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+							gap: "3rem"
+						}}
+					>
 						{cards.map((card, index) => (
-							<div key={index}>
-								<img src={card.image} alt="" />
-								<h3>{card.title}</h3>
-							</div>
+							<CardView key={index} {...card} />
 						))}
 					</div>
 				</section>
