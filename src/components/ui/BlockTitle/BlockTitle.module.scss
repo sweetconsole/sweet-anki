@@ -1,0 +1,7 @@
+@use "../../../assets/styles/variables";
+
+.title {
+	font-size: 3rem;
+	color: variables.$color-primary-dark;
+	margin-bottom: 2rem;
+}

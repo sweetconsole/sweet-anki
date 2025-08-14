@@ -5,10 +5,10 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { Field } from "../../components/ui/"
 import { auth } from "../../firebase.ts"
 import { pagesConfig } from "../../config/pages.config.ts"
-import { useAuth } from "../../hooks/useAuth.ts"
 import { validEmail, validPassword } from "../../config/valid.config.ts"
 import type { ILoginForm } from "./form.interface.ts"
 import styles from "./AuthPages.module.scss"
+import { useAuth } from "../../hooks/useAuth.ts"
 
 const LoginPage: FC = () => {
 	const { register, handleSubmit, formState } = useForm<ILoginForm>({
@@ -28,7 +28,7 @@ const LoginPage: FC = () => {
 		}
 	}
 
-	if (useAuth() != undefined) {
+	if (useAuth().user != null) {
 		navigate(pagesConfig.home)
 	}
 
@@ -38,9 +38,9 @@ const LoginPage: FC = () => {
 				<h1 className={styles.title}>Авторизация</h1>
 
 				<Field
-					label='Введите электронную почту'
-					placeholder='youremail@example.com'
-					type='email'
+					label="Введите электронную почту"
+					placeholder="youremail@example.com"
+					type="email"
 					error={emailError}
 					{...register("email", {
 						required: "Это поле обязательное",
@@ -49,9 +49,9 @@ const LoginPage: FC = () => {
 				/>
 
 				<Field
-					label='Введите электронную почту'
-					placeholder='пароль'
-					type='password'
+					label="Введите электронную почту"
+					placeholder="пароль"
+					type="password"
 					error={passwordError}
 					{...register("password", {
 						required: "Это поле обязательное",
@@ -65,7 +65,7 @@ const LoginPage: FC = () => {
 
 				<button
 					className={styles.button}
-					type='submit'
+					type="submit"
 					disabled={!formState.isValid}
 				>
 					Войти
@@ -73,7 +73,7 @@ const LoginPage: FC = () => {
 
 				<p className={styles.text}>
 					Нет учетной записи?{" "}
-					<Link className={styles.link} to='../register/'>
+					<Link className={styles.link} to="../register/">
 						Создать аккаунт
 					</Link>
 				</p>

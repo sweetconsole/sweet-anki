@@ -1,0 +1,38 @@
+@use "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+	color-scheme: light !important;
+}
+
+*::selection {
+	color: variables.$color-secondary;
+	background-color: variables.$color-accent;
+}
+
+html {
+	font-size: 16px;
+
+	@media (max-width: 64rem) {
+		font-size: 14px;
+	}
+
+	@media (max-width: 48rem) {
+		font-size: 12px;
+	}
+
+	@media (max-width: 32rem) {
+		font-size: 10px;
+	}
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	color: variables.$color-primary-dark;
+	background-color: variables.$color-secondary;
+}
+
+button,
+a {
+	cursor: pointer;
+}

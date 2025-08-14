@@ -38,7 +38,7 @@ const RegisterPage: FC = () => {
 		}
 	}
 
-	if (useAuth() != undefined) {
+	if (useAuth().user != null) {
 		navigate(pagesConfig.home)
 	}
 
@@ -48,9 +48,9 @@ const RegisterPage: FC = () => {
 				<h1 className={styles.title}>Регистрация</h1>
 
 				<Field
-					label='Введите свое имя'
-					placeholder='Иван'
-					type='text'
+					label="Введите свое имя"
+					placeholder="Иван"
+					type="text"
 					error={nameError}
 					{...register("name", {
 						required: "Это поле обязательное",
@@ -59,9 +59,9 @@ const RegisterPage: FC = () => {
 				/>
 
 				<Field
-					label='Введите электронную почту'
-					placeholder='youremail@example.com'
-					type='email'
+					label="Введите электронную почту"
+					placeholder="youremail@example.com"
+					type="email"
 					error={emailError}
 					{...register("email", {
 						required: "Это поле обязательное",
@@ -70,9 +70,9 @@ const RegisterPage: FC = () => {
 				/>
 
 				<Field
-					label='Введите электронную почту'
-					placeholder='пароль'
-					type='password'
+					label="Введите электронную почту"
+					placeholder="пароль"
+					type="password"
 					error={passwordError}
 					{...register("password", {
 						required: "Это поле обязательное",
@@ -86,7 +86,7 @@ const RegisterPage: FC = () => {
 
 				<button
 					className={styles.button}
-					type='submit'
+					type="submit"
 					disabled={!formState.isValid}
 				>
 					Зарегистрироваться
@@ -94,7 +94,7 @@ const RegisterPage: FC = () => {
 
 				<p className={styles.text}>
 					Уже зарегистрированы?{" "}
-					<Link className={styles.link} to='../login/'>
+					<Link className={styles.link} to="../login/">
 						Войдите
 					</Link>
 				</p>

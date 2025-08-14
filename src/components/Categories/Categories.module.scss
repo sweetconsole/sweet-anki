@@ -1,0 +1,35 @@
+@use "../../assets/styles/variables.scss";
+
+.categories {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 1.8rem;
+	list-style: none;
+}
+
+.category {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: solid 3px variables.$color-primary-light;
+	border-radius: 1rem;
+	cursor: pointer;
+	padding: 1rem;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.category_icon {
+	width: 6rem;
+	height: 6rem;
+}
+
+.category_title {
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding-top: 0.5rem;
+}
