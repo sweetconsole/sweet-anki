@@ -1,0 +1,13 @@
+@use "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+button,
+a {
+	cursor: pointer;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	color: variables.$color-primary-dark;
+	background-color: variables.$color-secondary;
+}
