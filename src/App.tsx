@@ -8,7 +8,8 @@ import {
 	CategoriesPage,
 	CategoryPage,
 	UserAgreementPage,
-	CardsPage
+	CardsPage,
+	CardPage
 } from "./pages"
 import "./assets/styles/fonts.scss"
 import "./assets/styles/general.scss"
@@ -20,6 +21,11 @@ const App: FC = () => {
 				<Route path={pagesConfig.home} element={<HomePage />} />
 				<Route path={pagesConfig.login} element={<LoginPage />} />
 				<Route path={pagesConfig.register} element={<RegisterPage />} />
+
+				<Route path={pagesConfig.rating} element={<HomePage />} />
+				<Route path={pagesConfig.profile} element={<HomePage />} />
+
+				<Route path={pagesConfig.card} element={<CardPage />} />
 				<Route path={pagesConfig.cards} element={<CardsPage />} />
 				<Route path={pagesConfig.categories} element={<CategoriesPage />} />
 				<Route path={pagesConfig.category} element={<CategoryPage />} />

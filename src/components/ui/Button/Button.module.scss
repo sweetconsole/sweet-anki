@@ -1,0 +1,31 @@
+@use "../../../assets/styles/variables.scss";
+
+.button_border,
+.button_filled {
+	font-size: 1rem;
+	font-weight: 500;
+	border-radius: 0.75rem;
+	padding: 0.5rem 1.75rem;
+	transition: all 0.2s ease-in-out;
+}
+
+.button_border {
+	color: variables.$color-accent;
+	border: 3px solid variables.$color-accent;
+	background-color: transparent;
+
+	&:hover {
+		color: variables.$color-secondary;
+		background-color: variables.$color-accent;
+	}
+}
+
+.button_filled {
+	color: variables.$color-secondary;
+	border: 3px solid variables.$color-accent;
+	background-color: variables.$color-accent;
+
+	&:hover {
+		color: variables.$color-primary-dark;
+	}
+}

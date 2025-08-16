@@ -5,7 +5,7 @@ import styles from "./CardView.module.scss"
 
 const CardView: FC<ICardProps> = ({ title, image }) => {
 	return (
-		<Link className={styles.card} to={`../card/${title.toLowerCase()}`}>
+		<Link className={styles.card} to={`../card/${title.toLowerCase()}/`}>
 			<img className={styles.image} src={image} alt={title} />
 			<p className={styles.title}>{title}</p>
 

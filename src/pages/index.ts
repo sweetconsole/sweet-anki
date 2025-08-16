@@ -1,5 +1,6 @@
 export { default as LoginPage } from "./AuthPages/LoginPage.tsx"
 export { default as RegisterPage } from "./AuthPages/RegisterPage.tsx"
+export { default as CardPage } from "./CardPage/CardPage.tsx"
 export { default as CardsPage } from "./CardsPage.tsx"
 export { default as CategoriesPage } from "./CategoriesPage.tsx"
 export { default as CategoryPage } from "./CategoryPage.tsx"

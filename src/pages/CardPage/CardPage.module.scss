@@ -1,0 +1,84 @@
+@use "../../assets/styles/variables.scss";
+
+.block {
+	width: 100%;
+	max-width: 28rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.image {
+	width: 24rem;
+	height: 24rem;
+	object-fit: cover;
+	border-radius: 4rem;
+	margin-bottom: 1rem;
+}
+
+.title {
+	font-size: 3rem;
+	font-weight: 900;
+	margin-bottom: 2rem;
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.25rem;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+
+.input {
+	width: 100%;
+	font-size: 2rem;
+	font-weight: 500;
+	color: variables.$color-primary-dark;
+	background-repeat: no-repeat;
+	border: 3px solid variables.$color-primary-light;
+	border-radius: 1rem;
+	padding: 0.75rem 2rem;
+
+	&::placeholder {
+		color: variables.$color-primary-light;
+	}
+}
+
+.input_error {
+	background-image: url("../../assets/images/error.svg");
+	background-position-x: 96%;
+	background-position-y: 50%;
+	background-size: 7.5%;
+	border-color: variables.$color-error;
+}
+
+.error {
+	width: 100%;
+	font-size: 1rem;
+	font-weight: 500;
+	color: variables.$color-error;
+	text-align: center;
+}
+
+.button {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: variables.$color-secondary;
+	background-color: variables.$color-accent;
+	border: 3px solid variables.$color-accent;
+	border-radius: 1rem;
+	cursor: pointer;
+	padding: 0.75rem 3rem;
+	transition: all 0.2s ease-in-out;
+
+	&:hover:not([disabled]) {
+		padding: 0.75rem 4.25rem;
+	}
+
+	&:disabled {
+		background-color: variables.$color-primary;
+		border-color: variables.$color-primary;
+		cursor: not-allowed;
+	}
+}

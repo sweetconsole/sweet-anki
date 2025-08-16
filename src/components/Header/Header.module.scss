@@ -25,6 +25,7 @@
 .navigation {
 	display: grid;
 	grid-auto-flow: column;
+	align-items: center;
 	gap: 4rem;
 }
 
@@ -36,4 +37,9 @@
 	&:hover {
 		color: variables.$color-accent;
 	}
+}
+
+.link_active {
+	color: variables.$color-accent;
+	cursor: default;
 }
