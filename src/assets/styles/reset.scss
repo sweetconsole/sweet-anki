@@ -27,16 +27,13 @@ html:focus-within {
 }
 
 body {
-	text-rendering: optimizeSpeed;
-}
-a:not([class]) {
-	text-decoration-skip-ink: auto;
+	text-rendering: optimizespeed;
 }
 
 img,
 picture {
-	max-width: 100%;
 	display: block;
+	max-width: 100%;
 }
 
 button,
@@ -47,13 +44,17 @@ textarea {
 }
 
 a {
-	text-decoration: none;
 	color: #000;
+	text-decoration: none;
+
+	&:not([class]) {
+		text-decoration-skip-ink: auto;
+	}
 }
 
 ul {
-	margin: 0;
 	padding: 0;
+	margin: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

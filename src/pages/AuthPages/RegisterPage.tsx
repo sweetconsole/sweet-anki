@@ -9,7 +9,7 @@ import {
 	validEmail,
 	validName,
 	validPassword
-} from "../../config/valid.config.ts"
+} from "../../config/validation.config.ts"
 import { Field } from "../../components/ui"
 import type { IRegisterForm } from "./form.interface.ts"
 import styles from "./AuthPages.module.scss"

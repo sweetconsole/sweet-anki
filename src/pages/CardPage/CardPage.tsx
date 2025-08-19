@@ -4,6 +4,7 @@ import { type SubmitHandler, useForm } from "react-hook-form"
 import { getCard } from "../../services/cards.service.ts"
 import { type Card } from "../../types/card.interface.ts"
 import { pagesConfig } from "../../config/pages.config.ts"
+import { validRussianWord } from "../../config/validation.config.ts"
 import { Header } from "../../components"
 import { Container } from "../../components/ui"
 import styles from "./CardPage.module.scss"
@@ -65,7 +66,7 @@ const CardPage: FC = () => {
 							{...register("answer", {
 								required: "Вы не ввели ответ",
 								pattern: {
-									value: /^[а-яА-ЯёЁ]+$/,
+									value: validRussianWord,
 									message:
 										"Ответ может состоять только из русского алфавита и без пробелов!"
 								}

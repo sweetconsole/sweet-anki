@@ -1,19 +1,19 @@
-@use "../../assets/styles/variables.scss";
+@use "../../assets/styles/variables";
 
 .header {
 	position: sticky;
 	top: 0;
 	z-index: 10;
 	padding: 1rem 0;
-	border-bottom: 2px solid variables.$color-primary-light;
-	background-color: variables.$color-secondary;
 	margin-bottom: 2rem;
+	background-color: variables.$color-secondary;
+	border-bottom: 2px solid variables.$color-primary-light;
 }
 
 .block {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .logo {
@@ -25,8 +25,8 @@
 .navigation {
 	display: grid;
 	grid-auto-flow: column;
-	align-items: center;
 	gap: 4rem;
+	align-items: center;
 }
 
 .link {

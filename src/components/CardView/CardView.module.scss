@@ -1,13 +1,13 @@
-@use "../../assets/styles/variables.scss";
+@use "../../assets/styles/variables";
 
 .card {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: relative;
+	padding: 1rem 1rem 3rem;
 	border: 3px solid variables.$color-primary-light;
 	border-radius: 2rem;
-	padding: 1rem 1rem 3rem 1rem;
 	transition: all 0.2s ease-in-out;
 
 	&:hover {
@@ -30,21 +30,21 @@
 	position: absolute;
 	bottom: 1rem;
 	left: 50%;
-	transform: translateX(-50%);
 	font-size: 1.5rem;
 	font-weight: 600;
 	text-align: center;
+	transform: translateX(-50%);
 }
 
 .hint {
-	width: 100%;
-	height: 3rem;
 	position: absolute;
 	top: 0;
 	left: 0;
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 3rem;
 	background-color: variables.$color-primary-light;
 	border-radius: 1.6rem 1.6rem 0 0;
 	opacity: 0;

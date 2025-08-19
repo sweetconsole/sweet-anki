@@ -5,3 +5,5 @@ export const validEmail =
 
 export const validPassword =
 	/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}/
+
+export const validRussianWord = /^[а-яА-ЯёЁ]+$/

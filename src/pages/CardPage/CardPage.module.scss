@@ -1,44 +1,44 @@
-@use "../../assets/styles/variables.scss";
+@use "../../assets/styles/variables";
 
 .block {
-	width: 100%;
-	max-width: 28rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
+	max-width: 28rem;
 }
 
 .image {
 	width: 24rem;
 	height: 24rem;
+	margin-bottom: 1rem;
 	object-fit: cover;
 	border-radius: 4rem;
-	margin-bottom: 1rem;
 }
 
 .title {
+	margin-bottom: 2rem;
 	font-size: 3rem;
 	font-weight: 900;
-	margin-bottom: 2rem;
 }
 
 .label {
 	display: flex;
 	flex-direction: column;
-	font-size: 1.25rem;
 	gap: 0.5rem;
 	margin-bottom: 2rem;
+	font-size: 1.25rem;
 }
 
 .input {
 	width: 100%;
+	padding: 0.75rem 2rem;
 	font-size: 2rem;
 	font-weight: 500;
 	color: variables.$color-primary-dark;
 	background-repeat: no-repeat;
 	border: 3px solid variables.$color-primary-light;
 	border-radius: 1rem;
-	padding: 0.75rem 2rem;
 
 	&::placeholder {
 		color: variables.$color-primary-light;
@@ -62,14 +62,14 @@
 }
 
 .button {
+	padding: 0.75rem 3rem;
 	font-size: 1.5rem;
 	font-weight: 500;
 	color: variables.$color-secondary;
+	cursor: pointer;
 	background-color: variables.$color-accent;
 	border: 3px solid variables.$color-accent;
 	border-radius: 1rem;
-	cursor: pointer;
-	padding: 0.75rem 3rem;
 	transition: all 0.2s ease-in-out;
 
 	&:hover:not([disabled]) {
@@ -77,8 +77,8 @@
 	}
 
 	&:disabled {
+		cursor: not-allowed;
 		background-color: variables.$color-primary;
 		border-color: variables.$color-primary;
-		cursor: not-allowed;
 	}
 }

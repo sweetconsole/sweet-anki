@@ -6,7 +6,7 @@ import { Field } from "../../components/ui/"
 import { auth } from "../../firebase.ts"
 import { useAuth } from "../../hooks/useAuth.ts"
 import { pagesConfig } from "../../config/pages.config.ts"
-import { validEmail, validPassword } from "../../config/valid.config.ts"
+import { validEmail, validPassword } from "../../config/validation.config.ts"
 import type { ILoginForm } from "./form.interface.ts"
 import styles from "./AuthPages.module.scss"
 
