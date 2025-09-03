@@ -1,4 +1,4 @@
-@use "../../assets/styles/variables";
+@use "../../../assets/styles/variables";
 
 .block {
 	display: flex;
@@ -36,9 +36,15 @@
 	font-size: 2rem;
 	font-weight: 500;
 	color: variables.$color-primary-dark;
+	outline: none;
 	background-repeat: no-repeat;
 	border: 3px solid variables.$color-primary-light;
 	border-radius: 1rem;
+	transition: all 0.2s ease-in-out;
+
+	&:focus {
+		border-color: variables.$color-primary;
+	}
 
 	&::placeholder {
 		color: variables.$color-primary-light;
@@ -46,11 +52,15 @@
 }
 
 .input_error {
-	background-image: url("../../assets/images/error.svg");
+	background-image: url("../../../assets/images/error.svg");
 	background-position-x: 96%;
 	background-position-y: 50%;
 	background-size: 7.5%;
 	border-color: variables.$color-error;
+
+	&:hover {
+		border-color: variables.$color-error;
+	}
 }
 
 .error {

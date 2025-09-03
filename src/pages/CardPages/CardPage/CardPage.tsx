@@ -1,12 +1,12 @@
 import { type FC, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { type SubmitHandler, useForm } from "react-hook-form"
-import { getCard } from "../../services/cards.service.ts"
-import { type Card } from "../../types/card.interface.ts"
-import { pagesConfig } from "../../config/pages.config.ts"
-import { validRussianWord } from "../../config/validation.config.ts"
-import { Header } from "../../components"
-import { Container } from "../../components/ui"
+import { getCard } from "../../../services/cards.service.ts"
+import { type Card } from "../../../types/card.interface.ts"
+import { pagesConfig } from "../../../config/pages.config.ts"
+import { validRussianWord } from "../../../config/validation.config.ts"
+import { Header } from "../../../components"
+import { Container } from "../../../components/ui"
 import styles from "./CardPage.module.scss"
 
 export interface IAnswerForm {
@@ -15,17 +15,15 @@ export interface IAnswerForm {
 
 const CardPage: FC = () => {
 	const [card, setCard] = useState<Card | null>()
+	const cardName = useParams().title
 	const { register, handleSubmit, formState } = useForm<IAnswerForm>({
 		mode: "onChange"
 	})
-	const cardName = useParams().title
-	const navigate = useNavigate()
 	const errorAnswer = formState.errors["answer"]?.message
+	const navigate = useNavigate()
 
 	const onSubmit: SubmitHandler<IAnswerForm> = async data => {
-		if (data.answer.toLowerCase() === card?.translation.toLowerCase()) {
-			console.log("Молодец")
-		}
+		console.log(data.answer)
 	}
 
 	const loadCard = async () => {
@@ -61,8 +59,8 @@ const CardPage: FC = () => {
 									? [styles.input, styles.input_error].join(" ")
 									: styles.input
 							}
+							autoComplete="off"
 							placeholder="Ваш ответ..."
-							type="text"
 							{...register("answer", {
 								required: "Вы не ввели ответ",
 								pattern: {

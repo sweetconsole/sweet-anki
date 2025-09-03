@@ -19,6 +19,7 @@
 .logo {
 	font-size: 1.5rem;
 	font-weight: 900;
+	color: variables.$color-primary;
 	letter-spacing: 1px;
 }
 
@@ -32,6 +33,7 @@
 .link {
 	font-size: 1.1rem;
 	font-weight: 500;
+	color: variables.$color-primary;
 	transition: all 0.2s ease-in-out;
 
 	&:hover {
@@ -42,4 +44,8 @@
 .link_active {
 	color: variables.$color-accent;
 	cursor: default;
+}
+
+.button {
+	font-weight: 700;
 }

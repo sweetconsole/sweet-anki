@@ -4,13 +4,13 @@ import { Link, useNavigate } from "react-router-dom"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { auth } from "../../firebase.ts"
 import { pagesConfig } from "../../config/pages.config.ts"
-import { useAuth } from "../../hooks/useAuth.ts"
 import {
 	validEmail,
 	validName,
 	validPassword
 } from "../../config/validation.config.ts"
 import { Field } from "../../components/ui"
+import { AuthProvider } from "../../components/providers"
 import type { IRegisterForm } from "./form.interface.ts"
 import styles from "./AuthPages.module.scss"
 
@@ -32,87 +32,85 @@ const RegisterPage: FC = () => {
 				data["password"]
 			)
 			await updateProfile(userCredential.user, { displayName: data["name"] })
-			navigate(pagesConfig.home)
+			navigate(pagesConfig.profile)
 		} catch (error) {
 			console.error("Error registering user:", error)
 		}
 	}
 
-	if (useAuth().user != null) {
-		navigate(pagesConfig.home)
-	}
-
 	return (
-		<div className={styles.wrapper}>
-			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-				<h1 className={styles.title}>Регистрация</h1>
+		<AuthProvider auth={false} redirect={pagesConfig.profile}>
+			<div className={styles.wrapper}>
+				<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+					<h1 className={styles.title}>Регистрация</h1>
 
-				<Field
-					label="Введите свое имя"
-					placeholder="Иван"
-					type="text"
-					error={nameError}
-					{...register("name", {
-						required: "Это поле обязательное",
-						pattern: { value: validName, message: "Некорректное имя" }
-					})}
-				/>
+					<Field
+						label="Введите свое имя"
+						placeholder="Иван"
+						type="text"
+						error={nameError}
+						{...register("name", {
+							required: "Это поле обязательное",
+							pattern: { value: validName, message: "Некорректное имя" }
+						})}
+					/>
 
-				<Field
-					label="Введите электронную почту"
-					placeholder="youremail@example.com"
-					type="email"
-					error={emailError}
-					{...register("email", {
-						required: "Это поле обязательное",
-						pattern: { value: validEmail, message: "Неверный формат почты" }
-					})}
-				/>
+					<Field
+						label="Введите электронную почту"
+						placeholder="youremail@example.com"
+						type="email"
+						error={emailError}
+						{...register("email", {
+							required: "Это поле обязательное",
+							pattern: { value: validEmail, message: "Неверный формат почты" }
+						})}
+					/>
 
-				<Field
-					label="Введите электронную почту"
-					placeholder="пароль"
-					type="password"
-					error={passwordError}
-					{...register("password", {
-						required: "Это поле обязательное",
-						pattern: {
-							value: validPassword,
-							message:
-								"Пароль должен иметь минимум 6 символов из них:\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву\n● одну цифру"
-						}
-					})}
-				/>
+					<Field
+						label="Введите электронную почту"
+						placeholder="пароль"
+						type="password"
+						error={passwordError}
+						{...register("password", {
+							required: "Это поле обязательное",
+							pattern: {
+								value: validPassword,
+								message:
+									"Пароль должен иметь минимум 6 символов из них:\n● один специальный символ (!@#$%^&*=+-_)\n● одну заглавную и строчную букву\n● одну цифру"
+							}
+						})}
+					/>
 
-				{formState.isValid ? (
-					<p className={styles.approval}>
-						Нажимая «Зарегистрироваться», я даю{" "}
-						<Link
-							className={styles.approval_link}
-							target="_blank"
-							to={pagesConfig.userAgreement}
-						>
-							согласие на обработку персональных данных
+					{formState.isValid ? (
+						<p className={styles.approval}>
+							Нажимая «Зарегистрироваться», я даю{" "}
+							<Link
+								className={styles.approval_link}
+								target="_blank"
+								to={pagesConfig.userAgreement}
+							>
+								согласие на обработку персональных данных
+							</Link>
+						</p>
+					) : null}
+
+					<button
+						className={styles.button}
+						type="submit"
+						disabled={!formState.isValid}
+					>
+						Зарегистрироваться
+					</button>
+
+					<p className={styles.text}>
+						Уже зарегистрированы?{" "}
+						<Link className={styles.link} to="../login/">
+							Войдите
 						</Link>
 					</p>
-				) : null}
-
-				<button
-					className={styles.button}
-					type="submit"
-					disabled={!formState.isValid}
-				>
-					Зарегистрироваться
-				</button>
-
-				<p className={styles.text}>
-					Уже зарегистрированы?{" "}
-					<Link className={styles.link} to="../login/">
-						Войдите
-					</Link>
-				</p>
-			</form>
-		</div>
+				</form>
+			</div>
+		</AuthProvider>
 	)
 }
 

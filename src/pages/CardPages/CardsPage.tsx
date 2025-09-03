@@ -1,8 +1,8 @@
 import { type FC, useEffect, useState } from "react"
-import { CardView, Header } from "../components"
-import { BlockTitle, Container } from "../components/ui"
-import type { Card } from "../types/card.interface.ts"
-import { getCards } from "../services/cards.service.ts"
+import { CardView, Header } from "../../components"
+import { BlockTitle, Container } from "../../components/ui"
+import type { Card } from "../../types/card.interface.ts"
+import { getCards } from "../../services/cards.service.ts"
 
 const CardsPage: FC = () => {
 	const [cards, setCards] = useState<Card[]>([])
@@ -21,7 +21,7 @@ const CardsPage: FC = () => {
 			<Header />
 
 			<Container>
-				<BlockTitle>Все карточки</BlockTitle>
+				<BlockTitle>Список карточек</BlockTitle>
 
 				<div
 					style={{

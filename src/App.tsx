@@ -1,5 +1,7 @@
 import { type FC } from "react"
 import { Routes, Route, Navigate } from "react-router-dom"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 import { pagesConfig } from "./config/pages.config.ts"
 import {
 	HomePage,
@@ -34,8 +36,11 @@ const App: FC = () => {
 					element={<UserAgreementPage />}
 				/>
 
-				<Route path="*" element={<Navigate to={pagesConfig.register} />} />
+				<Route path="*" element={<Navigate to={pagesConfig.home} />} />
 			</Routes>
+
+			<SpeedInsights />
+			<Analytics />
 		</>
 	)
 }
